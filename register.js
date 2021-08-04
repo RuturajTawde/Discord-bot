@@ -32,6 +32,7 @@ const allCommands = {
 
 // all the command starts with '!' and some other functions are also present here
 module.exports = function (msg) {
+    console.log(msg.content);
     let tokens = msg.content.split(" ");
     let command = tokens.shift();
     switch (command.charAt(0)) {
@@ -47,6 +48,9 @@ module.exports = function (msg) {
             if (command === '') {
                 allCommands['respect'](msg, tokens)
             }
+            if (msg.content.toUpperCase().includes('FUCK')) {
+                allCommands['tableflip'](msg, tokens)
+            }
             break;
         default:
             if (msg.content === '<@&815498019717644318>') {
@@ -60,10 +64,6 @@ module.exports = function (msg) {
             }
             if (msg.content.toUpperCase() === 'RIP') {
                 allCommands['rip'](msg, tokens)
-            }
-            if (msg.content.toUpperCase().includes('FUCK')) {
-                console.log(msg.content.toUpperCase().includes('FUCK'));
-                allCommands['tableflip'](msg, tokens)
             }
             break;
     }
