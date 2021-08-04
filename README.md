@@ -45,4 +45,4 @@ It will respond with a joke.
 
 You can also [demo](https://discord.com/oauth2/authorize?client_id=871435244581048380&scope=bot) it now.
 
-### `Special Thanks to 'The Coding Train' for kickstart.` ♥
+### `Special Thanks to 'The Coding Train'.` ♥
