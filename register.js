@@ -61,6 +61,9 @@ module.exports = function (msg) {
             if (msg.content.toUpperCase() === 'RIP') {
                 allCommands['rip'](msg, tokens)
             }
+            if (msg.content.toUpperCase().includes('FUCK')) {
+                allCommands['tableflip'](msg, tokens)
+            }
             break;
     }
 }
