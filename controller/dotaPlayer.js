@@ -1,3 +1,3 @@
 module.exports = (msg, arg) => {
-    msg.reply('Kaam dhande nahi ahet ka?');
-}
+  msg.reply("Kaam dhande nahi ahet ka?");
+};

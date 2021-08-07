@@ -1,3 +1,3 @@
 module.exports = (msg, arg) => {
-    msg.channel.send('(╯°□°)╯︵ ┻━┻');
-}
+  msg.channel.send("(╯°□°)╯︵ ┻━┻");
+};
