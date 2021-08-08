@@ -1,3 +1,5 @@
+var stringSimilarity = require("string-similarity");
+
 const validHero = [
   "Abaddon",
   "Alchemist",
@@ -125,10 +127,15 @@ const validHero = [
 module.exports = (msg, arg) => {
   arg.forEach((element) => {
     if (validHero.indexOf(element) === -1) {
-      if (Math.floor(Math.random() * 100) < 5) {
-        msg.reply(`DUDE PLEASE REFER THIs HERO POOL!! ${validHero}`);
+      let matches = stringSimilarity.findBestMatch(element, validHero);
+      if (matches.bestMatch.rating < 0.2) {
+        msg.reply(
+          `bruh!!! I'm not Google and ${element} is not a valid hero... right??`
+        );
       } else {
-        msg.channel.send(`${element} is not a valid hero...`);
+        msg.channel.send(
+          `Are you searching for https://dota2.fandom.com/wiki/${matches.bestMatch.target}/Counters ?`
+        );
       }
     } else {
       msg.channel.send(`https://dota2.fandom.com/wiki/${element}/Counters`);
