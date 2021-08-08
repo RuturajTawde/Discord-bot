@@ -17,17 +17,18 @@ const givepercent = require("./controller/givepercent");
 const allCommands = {
   test,
   dotaPlayer,
-  dotaHero,
-  dotaHeroCounter,
+  dotahero: dotaHero,
+  dotaherocounter: dotaHeroCounter,
   sparta,
   joeJoke,
   respect,
-  tellAJoke,
+  tellajoke: tellAJoke,
   tableflip,
   rip,
   askque,
   subreddit,
   givepercent,
+  help: test,
 };
 
 // all the command starts with '!' and some other functions are also present here
@@ -36,7 +37,7 @@ module.exports = function (msg) {
   let command = tokens.shift();
   switch (command.charAt(0)) {
     case "!":
-      command = command.substring(1);
+      command = command.substring(1).toLowerCase();
       if (command in allCommands) {
         allCommands[command](msg, tokens);
       }

@@ -125,20 +125,22 @@ const validHero = [
 ];
 
 module.exports = (msg, arg) => {
-  arg.forEach((element) => {
-    if (validHero.indexOf(element) === -1) {
-      let matches = stringSimilarity.findBestMatch(element, validHero);
-      if (matches.bestMatch.rating < 0.2) {
-        msg.reply(
-          `bruh!!! I'm not Google and ${element} is not a valid hero... right??`
-        );
-      } else {
-        msg.channel.send(
-          `Are you searching for https://dota2.fandom.com/wiki/${matches.bestMatch.target}/Counters ?`
-        );
-      }
+  let heroInput = arg.join(" ").toLowerCase();
+  const lowerValidHero = validHero.map((str) => str.toLowerCase());
+  if (validHero.indexOf(heroInput) === -1) {
+    let matches = stringSimilarity.findBestMatch(heroInput, lowerValidHero);
+    if (matches.bestMatch.rating < 0.3) {
+      msg.reply(
+        `bruh!!! I'm not Google and ${heroInput} is not a valid hero... right?? One hero at a time please!!`
+      );
     } else {
-      msg.channel.send(`https://dota2.fandom.com/wiki/${element}/Counters`);
+      msg.channel.send(
+        `Are you searching for https://dota2.fandom.com/wiki/${
+          validHero[matches.bestMatchIndex]
+        }/Counters ??`
+      );
     }
-  });
+  } else {
+    msg.channel.send(`https://dota2.fandom.com/wiki/${heroInput}/Counters`);
+  }
 };

@@ -21,12 +21,12 @@ module.exports = (msg, arg) => {
           inline: false,
         },
         {
-          name: "!dotaHero <Hero_Name>",
+          name: "!dotahero <Hero_Name>",
           value: "It will redirect you to dota wiki page of mentioned hero.",
           inline: false,
         },
         {
-          name: "!dotaHeroCounter <Hero_Name>",
+          name: "!dotaherocounter <Hero_Name>",
           value:
             "It will direct you to dota wiki page of mentioned hero's counter.",
           inline: false,
@@ -47,7 +47,7 @@ module.exports = (msg, arg) => {
           inline: false,
         },
         {
-          name: "!tellAJoke <Type of Joke>",
+          name: "!tellajoke <Type of Joke>",
           value: "It will respond with a joke.",
           inline: false,
         },
